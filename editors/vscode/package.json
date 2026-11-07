@@ -1,0 +1,53 @@
+{
+  "name": "testferrum",
+  "displayName": "TestFerrum",
+  "description": "Run and debug TestFerrum suites from the VS Code Test Explorer",
+  "version": "0.1.0",
+  "publisher": "qa3-tech",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Testing"
+  ],
+  "keywords": [
+    "rust",
+    "testing",
+    "testferrum"
+  ],
+  "extensionDependencies": [
+    "vadimcn.vscode-lldb"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/Cargo.toml"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "TestFerrum",
+      "properties": {
+        "testferrum.slowThresholdMs": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "description": "Report tests slower than this many milliseconds in the test output. 0 turns the check off."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint --max-warnings 0 src",
+    "test": "npm run compile && node --test out/test/*.test.js",
+    "package": "npm run compile && vsce package --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/vscode": "~1.85.0",
+    "@vscode/vsce": "^4.1.0",
+    "eslint": "^10.14.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1"
+  }
+}

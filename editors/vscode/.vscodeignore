@@ -1,0 +1,7 @@
+src/**
+out/test/**
+node_modules/**
+tsconfig.json
+*.vsix
+.gitignore
+eslint.config.mjs

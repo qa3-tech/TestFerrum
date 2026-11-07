@@ -1,0 +1,13 @@
+[package]
+name = "calculator"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dev-dependencies]
+testferrum = { path = ".." }   # after publishing: testferrum = "0.1"
+
+# Each TestFerrum file is its own test binary with Rust's built-in harness turned off.
+[[test]]
+name = "calculator"
+harness = false

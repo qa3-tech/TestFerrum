@@ -1,0 +1,23 @@
+[package]
+name = "testferrum"
+version = "0.1.0"
+edition = "2024"
+description = "Railway-oriented testing framework: tests return results, failures are data"
+license = "MIT"
+readme = "README.md"
+keywords = ["testing", "test-framework", "railway", "junit"]
+categories = ["development-tools::testing"]
+exclude = ["editors/", ".github/"]
+
+[dependencies]
+regex = "1.13.1"
+
+[[test]]
+name = "math"
+harness = false
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
