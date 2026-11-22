@@ -219,9 +219,17 @@ pub fn format_summary(counts: &Counts) -> String {
 }
 
 /// Entry point: `fn main() -> ExitCode { run_cli(suites) }`. Exit code 1 on any failure.
+#[must_use]
 pub fn run_cli(suites: Vec<Suite>) -> ExitCode {
     let arguments: Vec<String> = std::env::args().skip(1).collect();
-    match parse_args(&arguments) {
+    run_args(&arguments, suites)
+}
+
+/// Like [`run_cli`], with the arguments passed in. Lets `main` handle its own
+/// arguments first, such as switching between groups of suites.
+#[must_use]
+pub fn run_args(arguments: &[String], suites: Vec<Suite>) -> ExitCode {
+    match parse_args(arguments) {
         Command::Help => {
             println!("{HELP}");
             ExitCode::SUCCESS

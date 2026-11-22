@@ -333,6 +333,7 @@ Pushing a tag such as `0.2.0` (no `v` prefix) runs `.github/workflows/release.ym
 | Function | Purpose |
 |---|---|
 | `run_cli(suites)` | Parse arguments, run, print or write the report, return the exit code |
+| `run_args(arguments, suites)` | Same as `run_cli`, with the arguments passed in |
 | `parse_args(arguments)` | Parse arguments into a `Command` |
 | `format_suite`, `format_summary` | Console text |
 | `to_junit(outcomes)` | JUnit XML text |
